@@ -14,12 +14,10 @@ const intersection = (firstObject, secondObject) => {
             if (
                 dataElem === data2Elem &&
                 firstObject[dataElem] === secondObject[data2Elem]
-            ) {
+            )
                 newObj[dataElem] = firstObject[dataElem];
-            }
         }
     }
-    console.log(newObj);
     return newObj;
 };
 
