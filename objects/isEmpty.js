@@ -1,3 +1,5 @@
+// РЕШЕНО
+
 /**
 
  * Описание задачи: Напишите функцию, которая делает поверхностную проверку объекта на пустоту.
@@ -8,7 +10,7 @@
  * @param {Object} object - объект с примитивами
  * @returns {boolean}
  */
-// +++
+
 const isEmpty = (object) => {
     let checkingForEmptiness = false;
     for (let elem in object) {

@@ -1,3 +1,5 @@
+// РЕШЕНО
+
 /**
 
  * Описание задачи: Напишите функцию, которая поверхностно сравнивает два объекта.
@@ -6,7 +8,6 @@
  * @param {Object<string | number>} secondObject - объект с примитивами
  * @returns {boolean}
  */
-// +++
 const isEqual = (firstObject, secondObject) => {
     if (JSON.stringify(firstObject) === JSON.stringify(secondObject)) {
         return true;

@@ -1,3 +1,5 @@
+// РЕШЕНО
+
 /**
 
  * Описание задачи: Напишите функцию, которая возвращает новый объект без указанных значений.
@@ -7,9 +9,16 @@
  * @returns {Object} - новый объект без удаленных значений
  */
 
-export const without = (object, ...args) => {
-    throw new Error(`Напишите здесь свое решение ${object} ${args}`);
+let without = (object, ...args) => {
+    for (let key in object) {
+        for (let arg of args) {
+            if (key === arg) {
+                delete object[key];
+            }
+        }
+    }
+    return object;
 };
 
-const data = {a: 1, b: 2, c: 3};
-console.log(without(data, 'b', 'c')); // { a: 1 }
+const data = { a: 1, b: 2, c: 3 };
+console.log(without(data, "b", "c")); // { a: 1 }

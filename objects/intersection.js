@@ -1,3 +1,5 @@
+// РЕШЕНО
+
 /**
 
  * Описание задачи: Напишите функцию, которая поверхностно находит пересечения объектов и возвращает объект пересечений.
@@ -6,7 +8,7 @@
  * @param {Object<string | number>} secondObject - объект с примитивными значениями
  * @returns {Object}
  */
-// +++
+
 const intersection = (firstObject, secondObject) => {
     let newObj = {};
     for (let dataElem in firstObject) {

@@ -1,3 +1,5 @@
+// РЕШЕНО
+
 /**
 
  * Описание задачи: Напишите функцию, которая делает глубокое сравнение объектов.
@@ -6,7 +8,7 @@
  * @param {Object} secondObj - Объект с любыми значениями
  * @returns {boolean}
  */
-// +++
+
 const isEqualDeep = (element1, element2) => {
     if (JSON.stringify(element1) === JSON.stringify(element2)) {
         return true;
