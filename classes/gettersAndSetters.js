@@ -4,7 +4,11 @@
  */
 
 class Worker {
+  constructor() {
+    getName () {
 
+    }
+  }
 }
 
 const worker = new Worker('Иван', 'Иванов', 10, 31);
