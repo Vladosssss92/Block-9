@@ -6,7 +6,7 @@
  * @param {Object<string | number>} secondObject - объект с примитивными значениями
  * @returns {Object}
  */
-
+// +++
 const intersection = (firstObject, secondObject) => {
     let newObj = {};
     for (let dataElem in firstObject) {

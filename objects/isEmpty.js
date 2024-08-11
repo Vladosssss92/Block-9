@@ -9,11 +9,20 @@
  * @returns {boolean}
  */
 
-export const isEmpty = (object) => {
-    throw new Error(`Напишите здесь свое решение ${object}`);
+const isEmpty = (object) => {
+    let checkingForEmptiness = false;
+    for (let elem in object) {
+        if (
+            object[elem] == undefined ||
+            object[elem] === "" ||
+            Number.isNaN(object[elem])
+        )
+            checkingForEmptiness = true;
+    }
+    return console.log(checkingForEmptiness);
 };
 
-const data = {a: 1, b: undefined};
-const data2 = {a: undefined};
-console.log(isEmpty(data)); // false
-console.log(isEmpty(data2)); // true
+const data = { a: "2n", b: "" };
+const data2 = { a: null };
+
+isEmpty(data2);
