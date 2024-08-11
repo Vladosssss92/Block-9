@@ -6,6 +6,7 @@
  * @param element - элемент для проверки
  * @returns {boolean}
  */
+// +++
 
 const isPlainObject = (element) => {
     if (Number.isNaN(element) || element == undefined || Array.isArray(element))

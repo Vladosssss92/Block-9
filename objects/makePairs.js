@@ -4,9 +4,10 @@
  * @param {Object} object - любой объект для трансформации
  * @returns {Array} - вложенный массив
  */
-
-export const makePairs = (object) => {
-    throw new Error(`Напишите здесь свое решение ${object}`);
+// +++
+const makePairs = (object) => {
+    let newArr = Object.entries(object);
+    return newArr;
 };
 
 const data = { a: 1, b: 2 };
