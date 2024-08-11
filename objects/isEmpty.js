@@ -8,7 +8,7 @@
  * @param {Object} object - объект с примитивами
  * @returns {boolean}
  */
-
+// +++
 const isEmpty = (object) => {
     let checkingForEmptiness = false;
     for (let elem in object) {
@@ -19,10 +19,10 @@ const isEmpty = (object) => {
         )
             checkingForEmptiness = true;
     }
-    return console.log(checkingForEmptiness);
+    return checkingForEmptiness;
 };
 
-const data = { a: "2n", b: "" };
+const data = { a: "2n", b: "2" };
 const data2 = { a: null };
 
-isEmpty(data2);
+console.log(isEmpty(data));
