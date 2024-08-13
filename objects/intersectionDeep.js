@@ -9,43 +9,51 @@
  * @returns {Object}
  */
 
-// const intersectionDeep = (firstObject, secondObject) => {
-//     let newObj = {};
-//     for (let dataElem in firstObject) {
-//         for (let data2Elem in secondObject) {
-//             if (
-//                 dataElem === data2Elem &&
-//                 firstObject[dataElem] === secondObject[data2Elem] && typeof(firstObject[dataElem]) !== 'object'
-//             ) {
-//                 newObj[dataElem] = firstObject[dataElem];
-//             } else if (typeof(firstObject[dataElem]) === 'object') {
-//                 console.log(111)
-//             }
-//         }
-//     }
-//     return newObj;
-//     // throw new Error(`Напишите здесь свое решение ${firstObject}, ${secondObject}`);
-// };
+let keyElement = "";
+const intersectionDeep = (firstObject, secondObject) => {
+    let newObj = {};
+    let arrDeep = {};
+    for (let dataElem in firstObject) {
+        for (let data2Elem in secondObject) {
+            let dataElemKey1 = firstObject[dataElem];
+            let dataElemKey2 = secondObject[data2Elem];
 
-// const data = { a: 1, b: { c: 3 } };
-// const data2 = { c: 1, b: { c: 3} };
-// console.log(intersectionDeep(data, data2)); // { b: { c: 3 } }
+            // console.log(dataElem);
+            // console.log(data2Elem);
+            if (
+                dataElem === data2Elem &&
+                typeof dataElemKey1 === "object" &&
+                typeof dataElemKey2 === "object"
+            ) {
+                keyElement = dataElem; // добавляем в переменную ключ элемента в который проваливаемся, сначала b
+                arrDeep[keyElement] = {}; // в объект {b: {}} добавляем ключ с пустым объектом
+                console.log(keyElement);
+                console.log(arrDeep);
+                return intersectionDeep(dataElemKey1, dataElemKey2);
+            }
+            if (
+                dataElem === data2Elem &&
+                firstObject[dataElem] === secondObject[data2Elem]
+            ) {
+                // console.log(arrDeep);
+                newObj[dataElem] = firstObject[dataElem];
+                console.log(newObj);
+                // arrDeep = { [keyElement]: newObj };
+                arrDeep[keyElement] = newObj; // по ключу b присваиваем новое свойство
 
-console.log(Object.values(data));
-let newObj = {};
-for (let dataElem in data) {
-    for (let data2Elem in data2) {
-        console.log(data2[data2Elem]);
-        console.log(typeof data2[data2Elem] === "object");
-        if (dataElem === data2Elem && data[dataElem] === data2[data2Elem])
-            newObj[dataElem] = data[dataElem];
+                console.log(keyElement);
+            }
+        }
     }
-}
-console.log(newObj);
-return newObj;
+    if (keyElement === "") {
+        return newObj;
+    } else {
+        return arrDeep;
+    }
+};
 
-const data = { a: 1, b: { c: 3 } };
-const data2 = { c: 1, b: { c: 3 } };
-console.log(isEqualDeep(data, data2)); // { b: { c: 3 } }
+const data = { a: 1, b: { d: { z: 1 } } };
+const data2 = { c: 1, b: { d: { z: 1 } } };
+console.log(intersectionDeep(data, data2)); // { b: { c: 3 } }
 
 // module.exports = intersectionDeep;

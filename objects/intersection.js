@@ -20,7 +20,8 @@ const intersection = (firstObject, secondObject) => {
                 newObj[dataElem] = firstObject[dataElem];
         }
     }
+
     return newObj;
 };
-
+console.log(intersection({ a: 1, b: 2 }, { a: 1, b: 2 }));
 module.exports = intersection;

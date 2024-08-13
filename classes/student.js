@@ -10,8 +10,8 @@
 
 class User {
     constructor(name, surname) {
-        this.name = name;
-        this.surname = surname;
+        this._name = name;
+        this._surname = surname;
     }
 
     getFullName() {

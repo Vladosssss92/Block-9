@@ -10,6 +10,7 @@
 
 class MyString {
     reverse(reverse) {
+        if (reverse == undefined) return undefined;
         let arrReverse = [];
         for (let i = reverse.length - 1; i >= 0; i--) {
             arrReverse.push(reverse[i]);
@@ -17,11 +18,13 @@ class MyString {
         return arrReverse.join("");
     }
     ucFirst(ucFirst) {
+        if (ucFirst == undefined) return undefined;
         let arrUpperCaseFirstLetter = ucFirst.split("");
         arrUpperCaseFirstLetter[0] = arrUpperCaseFirstLetter[0].toUpperCase();
         return arrUpperCaseFirstLetter.join("");
     }
     ucWords(ucWords) {
+        if (ucWords == undefined) return undefined;
         let arrSplitWord = ucWords.split(" ");
         let arrJoinWord = [];
         arrSplitWord.forEach((element) => {
