@@ -1,3 +1,5 @@
+// РЕШЕНО //
+
 /**
  * Напишите функцию rle(value) реализующую алгоритм сжатия строки.
  *
@@ -14,12 +16,10 @@ function rle(value) {
     let compression = [];
     let compressionFilter = [];
     let arrSplit = value.split("");
-    // console.log(arrSplit);
     for (let i = 0; i < value.length; i++) {
         if (arrSplit[i] === arrSplit[i + 1]) {
             count++;
-        }
-        if (arrSplit[i] !== arrSplit[i + 1]) {
+        } else {
             compression.push(count, arrSplit[i]);
             count = 1;
         }
@@ -27,5 +27,4 @@ function rle(value) {
     compressionFilter = compression.filter((one) => one !== 1).join("");
     return compressionFilter;
 }
-rle("aAAaaBBB");
 module.exports = rle;
