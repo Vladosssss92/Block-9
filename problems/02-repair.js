@@ -16,7 +16,10 @@
  * @returns {number}
  */
 function repair(width, length, height) {
-    return undefined;
+    let cansOfPaint = Math.ceil(
+        (width * height * 2 + length * height * 2) / 16
+    );
+    return cansOfPaint;
 }
 
-// module.exports = repair;
+module.exports = repair;
