@@ -14,7 +14,23 @@
  * @returns {string}
  */
 function hexToRgb(color) {
-    return undefined;
+    let arrRGB = [];
+    let arrFix = [];
+    let deleteFirstElem = color.split("");
+    deleteFirstElem.shift();
+    if (deleteFirstElem.length === 3) {
+        deleteFirstElem.forEach((elem) => arrFix.push(elem + elem));
+        arrFix.forEach((elem) => arrRGB.push(parseInt(elem, 16)));
+    }
+    if (deleteFirstElem.length === 6) {
+        arrFix.push(
+            deleteFirstElem[0] + deleteFirstElem[1],
+            deleteFirstElem[2] + deleteFirstElem[3],
+            deleteFirstElem[4] + deleteFirstElem[5]
+        );
+        arrFix.forEach((elem) => arrRGB.push(parseInt(elem, 16)));
+    }
+    return `rgb(${arrRGB[0]}, ${arrRGB[1]}, ${arrRGB[2]})`;
 }
 
 module.exports = hexToRgb;

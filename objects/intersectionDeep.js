@@ -9,11 +9,14 @@
  * @returns {Object}
  */
 
-let keyElement = "";
+let keyElement = [];
 const intersectionDeep = (firstObject, secondObject) => {
     let newObj = {};
-    let arrDeep = {};
+    let objDeep = {};
     for (let dataElem in firstObject) {
+        if (secondObject[dataElem]) {
+            objDeep[dataElem] = {};
+        }
         for (let data2Elem in secondObject) {
             let dataElemKey1 = firstObject[dataElem];
             let dataElemKey2 = secondObject[data2Elem];
@@ -26,29 +29,27 @@ const intersectionDeep = (firstObject, secondObject) => {
                 typeof dataElemKey2 === "object"
             ) {
                 keyElement = dataElem; // добавляем в переменную ключ элемента в который проваливаемся, сначала b
-                arrDeep[keyElement] = {}; // в объект {b: {}} добавляем ключ с пустым объектом
-                console.log(keyElement);
-                console.log(arrDeep);
+                objDeep[keyElement] = {}; // в объект {b: {}} добавляем ключ с пустым объектом
+                console.log(2);
+                console.log(objDeep);
                 return intersectionDeep(dataElemKey1, dataElemKey2);
             }
-            if (
-                dataElem === data2Elem &&
-                firstObject[dataElem] === secondObject[data2Elem]
-            ) {
-                // console.log(arrDeep);
+            if (dataElem === data2Elem && dataElemKey1 === dataElemKey2) {
+                // console.log(objDeep);
                 newObj[dataElem] = firstObject[dataElem];
                 console.log(newObj);
-                // arrDeep = { [keyElement]: newObj };
-                arrDeep[keyElement] = newObj; // по ключу b присваиваем новое свойство
-
+                // objDeep = { [keyElement]: newObj };
+                objDeep[keyElement] = newObj; // по ключу b присваиваем новое свойство
+                console.log(objDeep[keyElement]);
                 console.log(keyElement);
+                console.log(newObj);
             }
         }
     }
     if (keyElement === "") {
         return newObj;
     } else {
-        return arrDeep;
+        return objDeep;
     }
 };
 
