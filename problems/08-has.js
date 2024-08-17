@@ -12,8 +12,18 @@
  * @param {object} object
  * @returns {boolean}
  */
+const testObject = {
+    a: 1,
+    o: {
+        a: 2,
+    },
+    n: null,
+    "a.b.c": undefined,
+};
+
 function has(path, object) {
-    return undefined;
+    return false;
 }
+console.log(has(["o", "b"], testObject));
 
 module.exports = has;

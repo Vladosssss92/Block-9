@@ -1,3 +1,5 @@
+// РЕШЕНО //
+
 /**
  * Лёня пишет код максимально коротко. Чтобы конвертировать массив строк в числа он написал следующий код:
  *
@@ -16,7 +18,9 @@
  * @returns {number[]}
  */
 function map(array = []) {
-    return array.map(parseInt);
+    let toNumber = array.map((elem) => +elem);
+    console.log(toNumber);
+    return toNumber;
 }
-
+console.log(map(["0", "1", "2"]));
 module.exports = map;
