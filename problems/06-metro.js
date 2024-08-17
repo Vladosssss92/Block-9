@@ -17,7 +17,28 @@
  * @returns {number}
  */
 function metro(x, y) {
-    return undefined;
+    let maxStation = 13;
+    let variantXY = x - y - 1;
+    console.log(variantXY);
+    let variantYX = y - x - 1;
+    console.log(variantYX);
+    let varianMaxX = maxStation - (x + y - 1);
+    console.log(varianMaxX);
+    let variantMaxY = maxStation - (y + x - 1);
+    console.log(variantMaxY);
+    if ((x === 1 && y === maxStation) || (y === 1 && x === maxStation)) {
+        return 0;
+    }
+    if (x > y && variantXY <= varianMaxX) {
+        return variantXY;
+    } else if (x > y && variantXY >= varianMaxX) {
+        return varianMaxX;
+    }
+    if (x < y && variantYX <= variantMaxY) {
+        return variantYX;
+    } else {
+        return variantMaxY;
+    }
 }
-
+console.log(metro(11, 7));
 module.exports = metro;
